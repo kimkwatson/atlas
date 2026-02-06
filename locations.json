@@ -1,0 +1,54 @@
+[
+    {
+        "name": "Colosseum",
+        "location": "Rome"
+    },
+    {
+        "name": "Vatican",
+        "location": "Rome"
+    },
+    {
+        "name": "Pantheon",
+        "location": "Rome"
+    },
+    {
+        "name": "St. Peter's Basilica",
+        "location": "Rome"
+    },
+    {
+        "name": "Trevi Fountain",
+        "location": "Rome"
+    },
+    {
+        "name": "Sistine Chapel",
+        "location": "Rome"
+    },
+    {
+        "name": "Spanish Steps",
+        "location": "Rome"
+    },
+    {
+        "name": "Charles Bridge",
+        "location": "Prague"
+    },
+    {
+        "name": "Prague Castle",
+        "location": "Prague"
+    },
+    {
+        "name": "St. Vitus Cathedral",
+        "location": "Prague"
+    },
+    {
+        "name": "Lincoln Memorial",
+        "location": "Washington, D.C."
+    },
+    {
+        "name": "Washington Monument",
+        "location": "Washington, D.C."
+    },
+    {
+        "name": "The White House",
+        "location": "Washington, D.C."
+    }
+]
