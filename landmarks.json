@@ -1,0 +1,18 @@
+[
+    {
+        "name": "Rome",
+        "type": "city",
+        "country": "Italy",
+        "timezone": "",
+        "lat": "",
+        "lon": ""
+    },
+    {
+        "name": "Prague",
+        "type": "city",
+        "country": "Czech Republic",
+        "timezone": "UTC+01:00",
+        "lat": "505'15'N",
+        "lon": "1425'17"E"
+    }
+]
