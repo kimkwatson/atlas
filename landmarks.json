@@ -1,18 +1,94 @@
 [
     {
-        "name": "Rome",
-        "type": "city",
-        "country": "Italy",
-        "timezone": "",
-        "lat": "",
-        "lon": ""
+        "name": "Colosseum",
+        "description": "Ancient Roman amphitheater",
+        "category": "Ancient Site",
+        "locationId": "1",
+        "website": "https://en.wikipedia.org/wiki/Colosseum"
     },
     {
-        "name": "Prague",
-        "type": "city",
-        "country": "Czech Republic",
-        "timezone": "UTC+01:00",
-        "lat": "505'15'N",
-        "lon": "1425'17"E"
+        "name": "Vatican",
+        "description": "Independent religious city-state",
+        "category": "Religious Site",
+        "locationId": "1",
+        "website": "https://www.vatican.va/"
+    },
+    {
+        "name": "Pantheon",
+        "description": "Ancient Roman temple",
+        "category": "Ancient Site",
+        "locationId": "1",
+        "website": "https://en.wikipedia.org/wiki/Pantheon,_Rome"
+    },
+    {
+        "name": "St. Peter's Basilica",
+        "description": "Major Catholic basilica",
+        "category": "Religious Site",
+        "locationId": "1",
+        "website": "https://www.basilicasanpietro.va/en"
+    },
+    {
+        "name": "Trevi Fountain",
+        "description": "Iconic Baroque fountain",
+        "category": "Public Space",
+        "locationId": "1",
+        "website": "https://en.wikipedia.org/wiki/Trevi_Fountain"
+    },
+    {
+        "name": "Sistine Chapel",
+        "description": "Frescoed chapel by Michelangelo",
+        "category": "Cultural Site",
+        "locationId": "1",
+        "website": "https://www.museivaticani.va/"
+    },
+    {
+        "name": "Spanish Steps",
+        "description": "Monumental stairway",
+        "category": "Public Space",
+        "locationId": "1",
+        "website": "https://en.wikipedia.org/wiki/Spanish_Steps"
+
+    },
+    {
+        "name": "Charles Bridge",
+        "description": "Historic stone bridge",
+        "category": "Bridge",
+        "locationId": "2",
+        "website": "https://en.wikipedia.org/wiki/Charles_Bridge"
+    },
+    {
+        "name": "Prague Castle",
+        "description": "Medieval castle complex",
+        "category": "Historic Structure",
+        "locationId": "2",
+        "website": "https://www.hrad.cz/en/prague-castle-for-visitors"
+    },
+    {
+        "name": "St. Vitus Cathedral",
+        "description": "Gothic cathedral",
+        "category": "Religious Site",
+        "locationId": "2",
+        "website": "https://www.hrad.cz/en/prague-castle-for-visitors/objects-for-visitors/st.-vitus-cathedral-10330"
+    },
+    {
+        "name": "Lincoln Memorial",
+        "description": "Presidential memorial",
+        "category": "Monument",
+        "locationId": "3",
+        "website": "https://www.nps.gov/linc/index.htm"
+    },
+    {
+        "name": "Washington Monument",
+        "description": "Obelisk monument",
+        "category": "Monument",
+        "locationId": "3",
+        "website": "https://www.nps.gov/wamo/index.htm"
+    },
+    {
+        "name": "The White House",
+        "description": "Official U.S. presidential residence",
+        "category": "Government Building",
+        "locationId": "3",
+        "website": "https://www.whitehouse.gov/"
     }
 ]
