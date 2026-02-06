@@ -3,16 +3,24 @@
         "name": "Rome",
         "type": "city",
         "country": "Italy",
-        "timezone": "",
-        "lat": "",
-        "lon": ""
+        "timezone": "UTC+01:00",
+        "lat": 41.9028,
+        "lon": 12.4964
     },
     {
         "name": "Prague",
         "type": "city",
         "country": "Czech Republic",
         "timezone": "UTC+01:00",
-        "lat": "505'15'N",
-        "lon": "1425'17"E"
+        "lat": 50.0755,
+        "lon": 14.4378
+    },
+    {
+        "name": "Washington, D.C.",
+        "type": "city",
+        "country": "United States",
+        "timezone": "UTC-05:00",
+        "lat": 38.9072,
+        "lon": -77.0369
     }
 ]
