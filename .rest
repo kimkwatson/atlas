@@ -1,0 +1,12 @@
+### All Locations
+GET http://localhost:3000/locations
+
+### Location by id
+
+### New location
+
+### All landmarks
+
+### Landmark by id
+
+### New landmark
