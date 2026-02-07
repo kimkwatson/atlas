@@ -1,14 +1,11 @@
 ### All Locations
 GET http://localhost:3000/locations
-GET https://atlas-3zxc.onrender.com/locations
 
 ### Location by ID (Rome)
 GET http://localhost:3000/locations/69865ba93c8b3bf5e1b12049
-GET https://atlas-3zxc.onrender.com/locations/69865ba93c8b3bf5e1b12049
 
 ### New Location
 POST http://localhost:3000/locations
-POST https://atlas-3zxc.onrender.com/locations
 Content-Type: application/json
 
 {
