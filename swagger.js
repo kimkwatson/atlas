@@ -2,14 +2,14 @@ const swaggerAutogen = require('swagger-autogen')();
 
 const doc = {
     info: {
-        title: 'Locations API',
+        title: 'Atlas API',
         description: 'API for locations and landmarks'
     },
-    host: 'localhost:3000',
-    schemes: ['http']
+    host: 'atlas-3zxc.onrender.com',
+    schemes: ['https']
 };
 
 const outputFile = './swagger.json';
-const endpointsFile = ['./server.js'];
+const endpointsFile = ['./routes/index.js'];
 
 swaggerAutogen(outputFile, endpointsFile, doc);
