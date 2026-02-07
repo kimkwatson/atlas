@@ -16,10 +16,10 @@ router.get('/locations/:id', locationsController.getLocationById);
 router.post('/locations', locationsController.createLocation);
 
 // update location by id
-// router.put('/locations/:id', locationsController.updateLocationById);
+router.put('/locations/:id', locationsController.updateLocation);
 
-// delete landmark by id
-// router.delete('/locations/:id', locationsController.deleteLocationById);
+// delete location by id
+router.delete('/locations/:id', locationsController.deleteLocation);
 
 
 /*** Landmarks Routes ***/
@@ -34,9 +34,9 @@ router.get('/landmarks/:id', landmarksController.getLandmarkById);
 router.post('/landmarks', landmarksController.createLandmark);
 
 // update landmark by id
-// router.put('/landmarks/:id', landmarksController.updateLandmarkById);
+router.put('/landmarks/:id', landmarksController.updateLandmark);
 
 // delete landmark by id
-// router.delete('/landmarks/:id', landmarksController.deleteLandmarkById);
+router.delete('/landmarks/:id', landmarksController.deleteLandmark);
 
 module.exports = router;

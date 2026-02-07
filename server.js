@@ -5,6 +5,10 @@ const mongodb = require('./db/connect');
 const router = require('./routes');
 const port = process.env.PORT || 3000;
 
+// swagger
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+
 // express built-in body parsing
 app.use(express.json());
 app.use((req, res, next) => {
@@ -12,6 +16,7 @@ app.use((req, res, next) => {
     next();
   })
 app.use('/', router);
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // initialize mongodb
 const startServer = async () => {

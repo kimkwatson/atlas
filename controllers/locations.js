@@ -59,7 +59,14 @@ const createLocation = async (req, res) => {
     }
 };
 
-// update location by id
-// delete location by id
+// update location by id (stub)
+const updateLocation = async (req, res) => {
+    res.status(501).json({ message: 'updateLocation not implemented'})
+}
 
-module.exports = { getLocations, getLocationById, createLocation };
+// delete location by id (stub)
+const deleteLocation = async (req, res) => {
+    res.status(501).json({ message: 'deleteLocation not implemented'})
+}
+
+module.exports = { getLocations, getLocationById, createLocation, updateLocation, deleteLocation };

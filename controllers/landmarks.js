@@ -58,7 +58,14 @@ const createLandmark = async (req, res) => {
     }
 };
 
-// update landmark by id
-// delete landmark by id
+// update landmark by id (stub)
+const updateLandmark = async (req, res) => {
+    res.status(501).json({ message: 'updateLandmark not implemented'})
+}
 
-module.exports = { getLandmarks, createLandmark, getLandmarkById };
+// delete landmark by id (stub)
+const deleteLandmark = async (req, res) => {
+    res.status(501).json({ message: 'deleteLocation not implemented'})
+}
+
+module.exports = { getLandmarks, createLandmark, getLandmarkById, updateLandmark, deleteLandmark };
