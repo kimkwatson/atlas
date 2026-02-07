@@ -1,14 +1,14 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "Locations API",
+    "title": "Atlas API",
     "description": "API for locations and landmarks",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "atlas-3zxc.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/locations": {
