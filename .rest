@@ -12,9 +12,12 @@ Content-Type: application/json
   "name": "London",
   "type": "city",
   "country": "United Kingdom",
+  "region": "England",
   "timezone": "UTC+00:00",
   "lat": 51.5074,
-  "lon": -0.1278
+  "lon": -0.1278,
+  "currency": "GBP",
+  "population": 8982000
 }
 
 ### Update Location

@@ -3,24 +3,33 @@
         "name": "Rome",
         "type": "city",
         "country": "Italy",
+        "region": "Lazio",
         "timezone": "UTC+01:00",
         "lat": 41.9028,
-        "lon": 12.4964
+        "lon": 12.4964,
+        "currency": "EUR",
+        "population": 2873000
     },
     {
         "name": "Prague",
         "type": "city",
         "country": "Czech Republic",
+        "region": "Prague",
         "timezone": "UTC+01:00",
         "lat": 50.0755,
-        "lon": 14.4378
+        "lon": 14.4378,
+        "currency": "CZK",
+        "population": 1309000
     },
     {
         "name": "Washington, D.C.",
         "type": "city",
         "country": "United States",
+        "region": "District of Columbia",
         "timezone": "UTC-05:00",
         "lat": 38.9072,
-        "lon": -77.0369
+        "lon": -77.0369,
+        "currency": "USD",
+        "population": 712816
     }
 ]
