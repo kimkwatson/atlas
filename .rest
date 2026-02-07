@@ -1,12 +1,42 @@
 ### All Locations
 GET http://localhost:3000/locations
 
-### Location by id
+### Location by ID (Rome)
+GET http://localhost:3000/locations/69865ba93c8b3bf5e1b12049
 
-### New location
+### New Location
+POST http://localhost:3000/locations
+Content-Type: application/json
 
-### All landmarks
+{
+  "name": "London",
+  "type": "city",
+  "country": "United Kingdom",
+  "timezone": "UTC+00:00",
+  "lat": 51.5074,
+  "lon": -0.1278
+}
 
-### Landmark by id
+### Update Location
+### Delete Location
 
-### New landmark
+### All Landmarks
+GET http://localhost:3000/landmarks
+
+### Landmark by ID (Colosseum)
+GET http://localhost:3000/landmarks/69865bf83c8b3bf5e1b12051
+
+### New Landmark
+POST http://localhost:3000/landmarks
+Content-Type: application/json
+
+{
+  "name": "Big Ben",
+  "description": "Iconic clock tower",
+  "category": "Historic Structure",
+  "locationId": "4",
+  "website": "https://www.parliament.uk/bigben"
+}
+
+### Update Landmark
+### Delete Landmark

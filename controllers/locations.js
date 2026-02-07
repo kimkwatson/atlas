@@ -11,8 +11,55 @@ const getLocations = async (req, res, next) => {
 };
 
 // get one location by id
+const getLocationById = async (req, res) => {
+    try {
+        const db = mongodb.getDb().db();
+        const locationsCollection = db.collection("locations");
+
+        const id = req.params.id;
+        if (!id) {
+            return res.status(400).json({ error: "Missing id route parameter" });
+        }
+
+        if (!ObjectId.isValid(id)) {
+            return res.status(400).json({ error: "Invalid id format"});
+        }
+
+        const location = await locationsCollection.findOne({
+            _id: new ObjectId(id)
+        });
+
+        if (!location) {
+            return res.status(404).json({ error: err.message });
+        }
+
+        res.json(location);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+};
+
 // create new location
+const createLocation = async (req, res) => {
+    const location = {
+        name: req.body.name,
+        type: req.body.type,
+        country: req.body.country,
+        timezone: req.body.timezone,
+        lat: req.body.lat,
+        lon: req.body.lon
+    };
+    try {
+        const db = mongodb.getDb().db();
+        const locationsCollection = db.collection("locations");
+        const response = await locationsCollection.insertOne(location);
+        return res.status(201).json({ id: response.insertedId });
+    } catch(err) {
+        return res.status(500).json({ error: err.message });
+    }
+};
+
 // update location by id
 // delete location by id
 
-module.exports = { getLocations };
+module.exports = { getLocations, getLocationById, createLocation };
