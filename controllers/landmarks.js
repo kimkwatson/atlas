@@ -14,7 +14,7 @@ const getLandmarks = async (req, res, next) => {
 const getLandmarkById = async (req, res) => {
     try {
         const db = mongodb.getDb().db();
-        const locationsCollection = db.collection("locations");
+        const landmarksCollection = db.collection("landmarks");
 
         const id = req.params.id;
         if (!id) {
@@ -25,15 +25,15 @@ const getLandmarkById = async (req, res) => {
             return res.status(400).json({ error: "Invalid id format"});
         }
 
-        const location = await locationsCollection.findOne({
+        const landmark = await landmarksCollection.findOne({
             _id: new ObjectId(id)
         });
 
-        if (!location) {
+        if (!landmark) {
             return res.status(404).json({ error: err.message });
         }
 
-        res.json(location);
+        res.json(landmark);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }
@@ -57,6 +57,7 @@ const createLandmark = async (req, res) => {
         return res.status(500).json({ error: err.message });
     }
 };
+
 // update landmark by id
 // delete landmark by id
 
