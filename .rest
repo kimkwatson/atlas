@@ -2,7 +2,7 @@
 GET http://localhost:3000/locations
 
 ### Location by ID (Rome)
-GET http://localhost:3000/locations/69865ba93c8b3bf5e1b12049
+GET http://localhost:3000/locations/6987005bef1aa17340fe5b1e
 
 ### New Location
 POST http://localhost:3000/locations
