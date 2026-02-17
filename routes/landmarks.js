@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const landmarksController = require('../controllers/landmarks');
+const validate = require('../middleware/landmarks-validation');
 
 /*** Landmarks Routes ***/
 
@@ -12,10 +13,10 @@ router.get('/', landmarksController.getLandmarks);
 router.get('/:id', landmarksController.getLandmarkById);
 
 // create new landmark
-router.post('/', landmarksController.createLandmark);
+router.post('/', validate.landmarksRules(), validate.checkData, landmarksController.createLandmark);
 
 // update landmark by id
-router.put('/:id', landmarksController.updateLandmark);
+router.put('/:id', validate.landmarksRules(), validate.checkData, landmarksController.updateLandmark);
 
 // delete landmark by id
 router.delete('/:id', landmarksController.deleteLandmark);
