@@ -5,7 +5,8 @@ if (process.env.NODE_ENV !== 'production') {
 const express = require('express');
 const app = express();
 const mongodb = require('./db/connect');
-const router = require('./routes');
+const locationsRoute = require('./routes/locations');
+const landmarksRoute = require('./routes/landmarks');
 const port = process.env.PORT || 3000;
 
 // swagger
@@ -18,7 +19,8 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     next();
   })
-app.use('/', router);
+app.use('/locations', locationsRoute);
+app.use('/landmarks', landmarksRoute);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // initialize mongodb
