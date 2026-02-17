@@ -63,39 +63,51 @@ const createLocation = async (req, res) => {
 
 // update location by id
 const updateLocation = async (req, res) => {
-    const locationId = new ObjectId(req.params.id);
-    
-    const location = {
-        name: req.body.name,
-        type: req.body.type,
-        country: req.body.country,
-        timezone: req.body.timezone,
-        lat: req.body.lat,
-        lon: req.body.lon
+    try{
+        const locationId = new ObjectId(req.params.id);
+        
+        const location = {
+            name: req.body.name,
+            type: req.body.type,
+            country: req.body.country,
+            timezone: req.body.timezone,
+            lat: req.body.lat,
+            lon: req.body.lon
+        }
+        
+        const response = await mongodb
+            .getDb()
+            .db()
+            .collection("locations")
+            .replaceOne({ _id: locationId }, location);
+        
+            if (response.modifiedCount > 0) {
+                return res.status(204).send();
+        } else {
+            return res.status(404).json({ message: "Location not found." });
+        }
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ message: "Some error occured while updating the location." });
     }
     
-    const response = await mongodb
-        .getDb()
-        .db()
-        .collection("locations")
-        .replaceOne({ _id: locationId }, location);
-    
-        if (response.modifiedCount > 0) {
-        res.status(204).send();
-    } else {
-        res.status(404).json(response.error || 'Some error occurred while updating the location.')
-    }
 };
 
 // delete location by id
 const deleteLocation = async (req, res) => {
+    try {
     const locationId = new ObjectId(req.params.id);
-    const response = await mongodb.getDb().db().collection("locations").deleteOne({ _id: locationId }, true);
+
+    const response = await mongodb.getDb().db().collection("locations").deleteOne({ _id: locationId });
 
     if (response.deletedCount > 0) {
-        res.status(200).send();
+        return res.status(204).send();
     } else {
-        res.status(404).json(response.error || 'Some error occurred while deleting the location.');
+        return res.status(404).json({ message: "Location not found." });
+    }
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({ message: "Some error occurred while deleting the location." });
     }
 };
 
