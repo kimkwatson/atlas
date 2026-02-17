@@ -21,7 +21,23 @@ Content-Type: application/json
 }
 
 ### Update Location
+PUT http://localhost:3000/locations/6987005bef1aa17340fe5b1f
+Content-Type: application/json
+
+{
+  "name": "Prague",
+  "type": "city",
+  "country": "Czech Republic",
+  "region": "Prague",
+  "timezone": "UTC+01:00",
+  "lat": 50.0755,
+  "lon": 14.4378,
+  "currency": "CZK",
+  "population": 1309000
+}
+
 ### Delete Location
+DELETE http://localhost:3000/locations/6994ab8d76d35ecd04799ba2
 
 ### All Landmarks
 GET http://localhost:3000/landmarks
@@ -42,4 +58,16 @@ Content-Type: application/json
 }
 
 ### Update Landmark
+PUT http://localhost:3000/landmarks/69865bf83c8b3bf5e1b12058
+Content-Type: application/json
+
+{
+  "name": "Charles Bridge",
+  "description": "Historic stone bridge",
+  "category": "Bridge",
+  "locationId": "2",
+  "website": "https://en.wikipedia.org/wiki/Charles_Bridge"
+}
+
 ### Delete Landmark
+DELETE http://localhost:3000/landmarks/69870495c0fe37cb0242b083

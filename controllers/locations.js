@@ -41,6 +41,7 @@ const getLocationById = async (req, res) => {
 
 // create new location
 const createLocation = async (req, res) => {
+    
     const location = {
         name: req.body.name,
         type: req.body.type,
@@ -49,6 +50,7 @@ const createLocation = async (req, res) => {
         lat: req.body.lat,
         lon: req.body.lon
     };
+    
     try {
         const db = mongodb.getDb().db();
         const locationsCollection = db.collection("locations");
@@ -59,14 +61,42 @@ const createLocation = async (req, res) => {
     }
 };
 
-// update location by id (stub)
+// update location by id
 const updateLocation = async (req, res) => {
-    res.status(501).json({ message: 'updateLocation not implemented'})
-}
+    const locationId = new ObjectId(req.params.id);
+    
+    const location = {
+        name: req.body.name,
+        type: req.body.type,
+        country: req.body.country,
+        timezone: req.body.timezone,
+        lat: req.body.lat,
+        lon: req.body.lon
+    }
+    
+    const response = await mongodb
+        .getDb()
+        .db()
+        .collection("locations")
+        .replaceOne({ _id: locationId }, location);
+    
+        if (response.modifiedCount > 0) {
+        res.status(204).send();
+    } else {
+        res.status(404).json(response.error || 'Some error occurred while updating the location.')
+    }
+};
 
-// delete location by id (stub)
+// delete location by id
 const deleteLocation = async (req, res) => {
-    res.status(501).json({ message: 'deleteLocation not implemented'})
-}
+    const locationId = new ObjectId(req.params.id);
+    const response = await mongodb.getDb().db().collection("locations").deleteOne({ _id: locationId }, true);
+
+    if (response.deletedCount > 0) {
+        res.status(200).send();
+    } else {
+        res.status(404).json(response.error || 'Some error occurred while deleting the location.');
+    }
+};
 
 module.exports = { getLocations, getLocationById, createLocation, updateLocation, deleteLocation };

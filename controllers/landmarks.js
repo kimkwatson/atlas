@@ -58,14 +58,41 @@ const createLandmark = async (req, res) => {
     }
 };
 
-// update landmark by id (stub)
+// update landmark by id
 const updateLandmark = async (req, res) => {
-    res.status(501).json({ message: 'updateLandmark not implemented'})
-}
+    const landmarkId = new ObjectId(req/params.id);
 
-// delete landmark by id (stub)
+    const landmark = {
+        name: req.body.name,
+        description: req.body.description,
+        category: req.body.category,
+        locationId: req.body.locationId,
+        website: req.body.website
+    };
+    
+    const response = await mongodb
+        .getDb()
+        .db()
+        .collection("landmarks")
+        .replaceOne({ _id: landmarkId }, landmark);
+
+        if (response.modifiedCount > 0) {
+            res.status(204).send();
+        } else {
+            res.status(404).json(response.error || 'Some error occurred while updating the landmark.')
+        }
+};
+
+// delete landmark by id
 const deleteLandmark = async (req, res) => {
-    res.status(501).json({ message: 'deleteLocation not implemented'})
-}
+    const landmarkId = new ObjectId(req.params.id);
+    const response = await mongodb.getDb().db().collection("landmarks").deleteOne({ _id: landmarkId }, true);
+
+    if (response.deletedCount > 0) {
+        res.status(200).send();
+    } else {
+        res.status(404).json(response.error || 'Some error occurred while deleting the location.');
+    }
+};
 
 module.exports = { getLandmarks, createLandmark, getLandmarkById, updateLandmark, deleteLandmark };
