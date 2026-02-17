@@ -28,7 +28,14 @@ validate.locationsRules = () => {
       body("timezone")
         .trim()
         .notEmpty().withMessage("Please provide a time zone.")
-        .isTimeZone()
+        .custom((tz) => {
+        const validZones = Intl.supportedValuesOf("timeZone");
+
+        if (!validZones.includes(tz)) {
+          throw new Error("Timezone must be a valid IANA timezone.");
+        }
+        return true;
+        })
         .withMessage("Timezone must be a valid IANA timezone."),
 
       // latitude is required and must be a float
@@ -44,6 +51,20 @@ validate.locationsRules = () => {
         .isFloat({ min: -180, max: 180 })
         .withMessage("Longitude must be between -180 and 180.")
         .toFloat(),
+
+      // currency is required and must be a string of 3 letters
+      body("currency")
+        .trim()
+        .notEmpty().withMessage("Currency is required.")
+        .toUpperCase()
+        .isLength({ min: 3, max: 3 })
+        .withMessage("Currency must be a 3-letter code."),
+
+      // population is required and must be a non-negative integer
+      body("population")
+        .notEmpty().withMessage("Population is required.")
+        .isInt({ min: 0 }).withMessage("Population must be a non-negative integer.")
+        .toInt(),
     ]
 }
 

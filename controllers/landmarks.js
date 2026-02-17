@@ -60,7 +60,7 @@ const createLandmark = async (req, res) => {
 
 // update landmark by id
 const updateLandmark = async (req, res) => {
-    const landmarkId = new ObjectId(req/params.id);
+    const landmarkId = new ObjectId(req.params.id);
 
     const landmark = {
         name: req.body.name,

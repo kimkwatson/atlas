@@ -13,7 +13,7 @@ Content-Type: application/json
   "type": "city",
   "country": "United Kingdom",
   "region": "England",
-  "timezone": "UTC+00:00",
+  "timezone": "Europe/London",
   "lat": 51.5074,
   "lon": -0.1278,
   "currency": "GBP",
