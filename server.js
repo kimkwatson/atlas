@@ -4,6 +4,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const mongodb = require('./db/connect');
 const locationsRoute = require('./routes/locations');
 const landmarksRoute = require('./routes/landmarks');
@@ -15,10 +16,7 @@ const swaggerDocument = require('./swagger.json');
 
 // express built-in body parsing
 app.use(express.json());
-app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    next();
-  })
+app.use(cors());
 app.use('/locations', locationsRoute);
 app.use('/landmarks', landmarksRoute);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
