@@ -3,57 +3,67 @@ const { ObjectId } = require("mongodb");
 
 // get all landmarks
 const getLandmarks = async (req, res, next) => {
-    const result = await mongodb.getDb().db().collection('landmarks').find();
-    result.toArray().then((lists) => {
-        res.setHeader('Content-Type', 'application/json');
-        res.status(200).json(lists);
-    });
+    try {
+            const lists = await mongodb
+                .getDb()
+                .db()
+                .collection('landmarks')
+                .find()
+                .toArray();
+    
+            return res.status(200).json(lists);
+        } catch (err) {
+            console.error(err);
+            return res.status(500).json({ message: "Some error occurred while retrieving landmarks." });
+        }
 };
 
 // get one landmark by id
 const getLandmarkById = async (req, res) => {
     try {
-        const db = mongodb.getDb().db();
-        const landmarksCollection = db.collection("landmarks");
-
         const id = req.params.id;
-        if (!id) {
-            return res.status(400).json({ error: "Missing id route parameter" });
-        }
 
         if (!ObjectId.isValid(id)) {
-            return res.status(400).json({ error: "Invalid id format"});
+            return res.status(400).json({ message: "Invalid id format." });
         }
 
-        const landmark = await landmarksCollection.findOne({
-            _id: new ObjectId(id)
-        });
+        const landmark = await mongodb
+            .getDb()
+            .db()
+            .collection("landmarks")
+            .findOne({ _id: new ObjectId(id) });
 
         if (!landmark) {
             return res.status(404).json({ message: "Landmark not found." });
         }
 
-        res.json(landmark);
+        return res.status(200).json(landmark);
     } catch (err) {
-        res.status(500).json({ error: err.message });
+        console.error(err);
+        return res.status(500).json({ message: "Some error occurred while retrieving the landmark." });
     }
 };
 
 // create new landmark
 const createLandmark = async (req, res) => {
-    const landmark = {
-        name: req.body.name,
-        description: req.body.description,
-        category: req.body.category,
-        locationId: req.body.locationId,
-        website: req.body.website
-    };
     try {
-        const db = mongodb.getDb().db();
-        const landmarksCollection = db.collection("landmarks");
-        const response = await landmarksCollection.insertOne(landmark);
+        const landmark = {
+            name: req.body.name,
+            description: req.body.description,
+            category: req.body.category,
+            locationId: req.body.locationId,
+            website: req.body.website
+        };
+    
+        const response = await mongodb
+            .getDb()
+            .db()
+            .collection("landmarks")
+            .insertOne(landmark);
+
         return res.status(201).json({ id: response.insertedId });
     } catch(err) {
+        console.error(err);
         return res.status(500).json({ message: "Some error occurred while creating the landmark." });
     }
 };
