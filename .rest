@@ -12,7 +12,6 @@ Content-Type: application/json
   "name": "London",
   "type": "city",
   "country": "United Kingdom",
-  "region": "England",
   "timezone": "Europe/London",
   "lat": 51.5074,
   "lon": -0.1278,
@@ -21,14 +20,13 @@ Content-Type: application/json
 }
 
 ### Update Location
-PUT http://localhost:3000/locations/6987005bef1aa17340fe5b1f
+PUT http://localhost:3000/locations/6996b375412d619458496ecc
 Content-Type: application/json
 
 {
   "name": "Prague",
   "type": "city",
   "country": "Czech Republic",
-  "region": "Prague",
   "timezone": "Europe/Prague",
   "lat": 50.0755,
   "lon": 14.4378,
@@ -36,8 +34,8 @@ Content-Type: application/json
   "population": 1309000
 }
 
-### Delete Location
-DELETE http://localhost:3000/locations/6994ab8d76d35ecd04799ba2
+### Delete Location (Salt Lake City)
+DELETE http://localhost:3000/locations/69957357bb145c9905543354
 
 ### All Landmarks
 GET http://localhost:3000/landmarks
