@@ -113,7 +113,7 @@ const deleteLocation = async (req, res) => {
     const response = await mongodb.getDb().db().collection("locations").deleteOne({ _id: locationId });
 
     if (response.deletedCount > 0) {
-        return res.status(204).send();
+        return res.status(200).send();
     } else {
         return res.status(404).json({ message: "Location not found." });
     }
