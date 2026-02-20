@@ -34,8 +34,8 @@ Content-Type: application/json
   "population": 1309000
 }
 
-### Delete Location (Salt Lake City)
-DELETE http://localhost:3000/locations/69957357bb145c9905543354
+### Delete Location (London)
+DELETE http://localhost:3000/locations/6996b849914a1e4aa14ed150
 
 ### All Landmarks
 GET http://localhost:3000/landmarks
@@ -67,5 +67,5 @@ Content-Type: application/json
   "website": "https://en.wikipedia.org/wiki/Charles_Bridge"
 }
 
-### Delete Landmark
-DELETE http://localhost:3000/landmarks/69870495c0fe37cb0242b083
+### Delete Landmark (Big Ben)
+DELETE http://localhost:3000/landmarks/69957bc658beab1f4343f807
