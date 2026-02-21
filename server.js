@@ -39,8 +39,7 @@ passport.use(new GoogleStrategy(
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: '/auth/google/callback',
   },
-  (accessToken, refreshToken, profile, done) => {
-    // For now, just store the Google profile in the session
+  async (accessToken, refreshToken, profile, done) => {
     return done(null, profile);
   }
 ));

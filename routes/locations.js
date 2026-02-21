@@ -3,6 +3,7 @@ const router = express.Router();
 
 const locationsController = require('../controllers/locations');
 const validate = require('../middleware/locations-validation');
+const authenticate = require('..middleware/authentication');
 
 /*** Locations Routes ***/
 
