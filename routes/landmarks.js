@@ -3,7 +3,7 @@ const router = express.Router();
 
 const landmarksController = require('../controllers/landmarks');
 const validate = require('../middleware/landmarks-validation');
-const authenticate = require('..middleware/authentication');
+const authenticate = require('../middleware/authentication');
 
 /*** Landmarks Routes ***/
 
