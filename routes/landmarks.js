@@ -14,7 +14,7 @@ router.get('/', landmarksController.getLandmarks);
 router.get('/:id', landmarksController.getLandmarkById);
 
 // create new landmark
-router.post('/', authenticate.ensureAuth, validate.landmarksRules(), validate.checkData, landmarksController.createLandmark);
+router.post('/', validate.landmarksRules(), validate.checkData, landmarksController.createLandmark);
 
 // update landmark by id
 router.put('/:id', validate.landmarksRules(), validate.checkData, landmarksController.updateLandmark);
