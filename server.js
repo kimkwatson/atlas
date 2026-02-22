@@ -15,9 +15,6 @@ const passport = require('passport');
 const session = require('express-session');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
-// The scope for reading contacts.
-const SCOPES = ['openid', 'https://www.googleapid.com/auth/userinfo.email', 'https://www.googleapis.com/auth/userinfo.profile'];
-
 // swagger
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
@@ -37,7 +34,7 @@ passport.use(new GoogleStrategy(
   {
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: '/auth/google/callback',
+    callbackURL: process.env.GOOGLE_CALLBACK_URL,
   },
   async (accessToken, refreshToken, profile, done) => {
     return done(null, profile);
@@ -80,16 +77,6 @@ app.use(cors());
 app.use('/locations', locationsRoute);
 app.use('/landmarks', landmarksRoute);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-
-// Return authenticated Google client
-async function getGoogleAuth() {
-  const auth = await authenticate({
-    scopes: SCOPES,
-    keyfilePath: CREDENTIALS_PATH,
-    port: 3001
-  });
-  return auth;
-  }
 
 app.get('/auth/test', async (req, res) => {
   try {
