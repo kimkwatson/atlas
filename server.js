@@ -78,16 +78,6 @@ app.use('/locations', locationsRoute);
 app.use('/landmarks', landmarksRoute);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-app.get('/auth/test', async (req, res) => {
-  try {
-    await getGoogleAuth();
-    res.send('OAuth worked');
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: 'OAuth test failed' });
-  }
-});
-
 // initialize mongodb
 const startServer = async () => {
     try {
