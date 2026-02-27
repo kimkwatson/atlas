@@ -10,20 +10,73 @@
   "schemes": [
     "http"
   ],
+  "securityDefinitions": {
+    "googleOAuth": {
+      "type": "oauth2",
+      "authorizationUrl": "https://accounts.google.com/o/oauth2/v2/auth",
+      "flow": "implicit",
+      "scopes": {}
+    }
+  },
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
   "paths": {
-    "/locations/": {
+    "/auth/google": {
       "get": {
         "description": "",
-        "produces": [
-          "application/json"
-        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/auth/google/callback": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/auth/success": {
+      "get": {
+        "description": "",
         "responses": {
           "200": {
             "description": "OK"
           }
         }
+      }
+    },
+    "/auth/failure": {
+      "get": {
+        "description": "",
+        "responses": {
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/locations/": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       },
       "post": {
+        "security": [
+          { "googleOAuth": [] }
+        ],
         "description": "",
         "parameters": [
           {
@@ -100,6 +153,9 @@
         }
       },
       "put": {
+        "security": [
+          { "googleOAuth": [] }
+        ],
         "description": "",
         "parameters": [
           {
@@ -158,6 +214,9 @@
         }
       },
       "delete": {
+        "security": [
+          { "googleOAuth": [] }
+        ],
         "description": "",
         "parameters": [
           {
@@ -168,8 +227,8 @@
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
+          "200": {
+            "description": "OK"
           },
           "404": {
             "description": "Not Found"
@@ -183,16 +242,19 @@
     "/landmarks/": {
       "get": {
         "description": "",
-        "produces": [
-          "application/json"
-        ],
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "post": {
+        "security": [
+          { "googleOAuth": [] }
+        ],
         "description": "",
         "parameters": [
           {
@@ -260,6 +322,9 @@
         }
       },
       "put": {
+        "security": [
+          { "googleOAuth": [] }
+        ],
         "description": "",
         "parameters": [
           {
@@ -309,6 +374,9 @@
         }
       },
       "delete": {
+        "security": [
+          { "googleOAuth": [] }
+        ],
         "description": "",
         "parameters": [
           {
