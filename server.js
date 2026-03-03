@@ -74,6 +74,9 @@ app.get('/auth/failure', (req, res) => {
 // express built-in body parsing
 app.use(express.json());
 app.use(cors());
+
+// routes
+app.use(express.static("public"));
 app.use('/locations', locationsRoute);
 app.use('/landmarks', landmarksRoute);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
