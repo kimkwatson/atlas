@@ -8,6 +8,8 @@ const cors = require('cors');
 const mongodb = require('./db/connect');
 const locationsRoute = require('./routes/locations');
 const landmarksRoute = require('./routes/landmarks');
+const loginRoute = require('./routes/login');
+const logoutRoute = require('./routes/logout');
 const port = process.env.PORT || 3000;
 
 // OAuth require statements
@@ -49,36 +51,16 @@ passport.deserializeUser((user, done) => {
   done(null, user);
 });
 
-// Start Google OAuth
-app.get('/auth/google',
-  passport.authenticate('google', { scope: ['profile', 'email'] })
-);
-
-// Google OAuth callback
-app.get('/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: '/auth/failure' }),
-  (req, res) => {
-    res.redirect('/auth/success');
-  }
-);
-
-// Simple success/failure pages
-app.get('/auth/success', (req, res) => {
-  res.send('Logged in with Google!');
-});
-
-app.get('/auth/failure', (req, res) => {
-  res.status(401).send('Google login failed.');
-});
-
 // express built-in body parsing
 app.use(express.json());
 app.use(cors());
 
 // routes
 app.use(express.static("public"));
+app.use('/login', loginRoute);
 app.use('/locations', locationsRoute);
 app.use('/landmarks', landmarksRoute);
+app.use('/logout', logoutRoute);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // initialize mongodb
