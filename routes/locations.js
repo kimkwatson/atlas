@@ -14,7 +14,7 @@ router.get('/', locationsController.getLocations);
 router.get('/:id', locationsController.getLocationById);
 
 // create new location
-router.post('/', validate.locationsRules(), validate.checkData, locationsController.createLocation);
+router.post('/', authenticate, validate.locationsRules(), validate.checkData, locationsController.createLocation);
 
 // update location by id
 router.put('/:id', validate.locationsRules(), validate.checkData, locationsController.updateLocation);

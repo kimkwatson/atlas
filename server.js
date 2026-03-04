@@ -57,7 +57,7 @@ app.use(cors());
 
 // routes
 app.use(express.static("public"));
-app.use('/login', loginRoute);
+app.use('/auth', loginRoute);
 app.use('/locations', locationsRoute);
 app.use('/landmarks', landmarksRoute);
 app.use('/logout', logoutRoute);
