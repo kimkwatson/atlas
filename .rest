@@ -20,7 +20,7 @@ Content-Type: application/json
 }
 
 ### Update Location
-PUT http://localhost:3000/locations/6996b375412d619458496ecc
+PUT http://localhost:3000/locations/69a7a50fe8801f074ea3b44d
 Content-Type: application/json
 
 {
@@ -56,7 +56,7 @@ Content-Type: application/json
 }
 
 ### Update Landmark
-PUT http://localhost:3000/landmarks/69865bf83c8b3bf5e1b12058
+PUT http://localhost:3000/landmarks/69a7a481e8801f074ea3b44c
 Content-Type: application/json
 
 {

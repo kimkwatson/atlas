@@ -17,9 +17,9 @@ router.get('/:id', locationsController.getLocationById);
 router.post('/', authenticate, validate.locationsRules(), validate.checkData, locationsController.createLocation);
 
 // update location by id
-router.put('/:id', validate.locationsRules(), validate.checkData, locationsController.updateLocation);
+router.put('/:id', authenticate, validate.locationsRules(), validate.checkData, locationsController.updateLocation);
 
 // delete location by id
-router.delete('/:id', locationsController.deleteLocation);
+router.delete('/:id', authenticate, locationsController.deleteLocation);
 
 module.exports = router;

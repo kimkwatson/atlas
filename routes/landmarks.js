@@ -14,12 +14,12 @@ router.get('/', landmarksController.getLandmarks);
 router.get('/:id', landmarksController.getLandmarkById);
 
 // create new landmark
-router.post('/', validate.landmarksRules(), validate.checkData, landmarksController.createLandmark);
+router.post('/', authenticate, validate.landmarksRules(), validate.checkData, landmarksController.createLandmark);
 
 // update landmark by id
-router.put('/:id', validate.landmarksRules(), validate.checkData, landmarksController.updateLandmark);
+router.put('/:id', authenticate, validate.landmarksRules(), validate.checkData, landmarksController.updateLandmark);
 
 // delete landmark by id
-router.delete('/:id', landmarksController.deleteLandmark);
+router.delete('/:id', authenticate, landmarksController.deleteLandmark);
 
 module.exports = router;
